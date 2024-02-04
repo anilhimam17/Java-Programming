@@ -50,6 +50,26 @@ public class OOPIntro {
 
         System.out.println("\nSpecs of the Second Airplane:");
         secondPlane.planeSpec();
+
+        // -------------------------------------------------------------
+
+        // Utilising the Argument Constructor of the Class
+        Car custom_car1 = new Car(make="Mazda", model="RX-7", power=450, doors=2);
+        Car custom_car2 = new Car(make="Toyota", model="AE86 Corolla", power=200, doors=2);
+
+        System.out.println("\nViewing the Specs of the Custom Car:");
+        custom_car1.displayCarSpec();
+        custom_car2.displayCarSpec();
+
+        // -------------------------------------------------------------
+
+        // Utilising Constructor Chaining for Default Initialisation
+        AirPlane defAirPlane = new AirPlane();
+        System.out.println("\nViewing the Specs of the Default Airplane:");
+        defAirPlane.planeSpec();
+
+        System.out.println("\nSince we used default Initialisation in Static Feild all other planes are also initialised to default values");
+        secondPlane.planeSpec();
     }
 }
 

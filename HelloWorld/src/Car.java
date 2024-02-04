@@ -28,6 +28,10 @@ public class Car {
     }
 
     // Setter Methods
+    /*
+    * The "this" key word is used to refer to the particular instance of the class
+    * Thus changing the values of the variables / members effects only the current instance of the class
+    */
     public void setCompany(String make) {
         this.make = make;
     }
@@ -41,6 +45,31 @@ public class Car {
     }
 
     public void setDoors(int doors) {
+        this.doors = doors;
+    }
+
+    /*
+    * Building Constructors of the Class
+    * - Constructors of the Class are similar to methods of the class but don't return any values
+    * - They can be overloaded like functions to assist creation of different types of instances of the class
+    * - They have the name and access modifier of the class
+    * - Most importantly a constructor allow custom initialization of the class
+    */
+
+    public Car() {
+        System.out.println("The Default Constructor of the Class was used");
+    }
+
+    /*
+    * Once a constructor is declared the default constructor from Java isn't provided anymore
+    * We need to overload the constructors to include the default constructor
+    */
+
+    public Car(String make, String model, int power, int doors) {
+        System.out.println("\nThe Argument Constructor of the Class was used");
+        this.make = make;
+        this.model = model;
+        this.power = power;
         this.doors = doors;
     }
 }
