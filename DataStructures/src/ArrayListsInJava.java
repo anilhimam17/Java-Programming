@@ -22,7 +22,7 @@ public class ArrayListsInJava {
         * - ArrayLists do not allow primitive datatypes in declaration
         */
 
-        ArrayList <Integer> firstArrayList = new ArrayList<Integer>();
+        ArrayList <Integer> firstArrayList = new ArrayList<>();
 
         /*
         * ArrayLists are objects of a special class
