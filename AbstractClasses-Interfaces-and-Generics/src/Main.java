@@ -83,6 +83,17 @@ public class Main {
         flyingBird.speedInKMH(60);
         new Jet().speedInKMH(500);
 
+        // ------------------------------------------------------------------------------------------------------------------------
+
+        // Working with the Last Interface created
+        SpaceCraft apollo = new SpaceCraft();
+
+        System.out.println("\nThe functionality of the Spacecraft:");
+        apollo.orbitSpeed();
+        apollo.reachOrbit();
+        apollo.coordinates();
+        apollo.tracking();
+
     }
 
     // Helper Methods
@@ -99,6 +110,5 @@ public class Main {
         }
 
         flier.landing();
-
     }
 }
