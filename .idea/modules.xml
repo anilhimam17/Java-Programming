@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AbstractClasses-Interfaces-and-Generics/AbstractClasses-Interfaces-and-Generics.iml" filepath="$PROJECT_DIR$/AbstractClasses-Interfaces-and-Generics/AbstractClasses-Interfaces-and-Generics.iml" />
       <module fileurl="file://$PROJECT_DIR$/DataStructures/DataStructures.iml" filepath="$PROJECT_DIR$/DataStructures/DataStructures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Functional Interfaces and Lambda Expressions/Functional Interfaces and Lambda Expressions.iml" filepath="$PROJECT_DIR$/Functional Interfaces and Lambda Expressions/Functional Interfaces and Lambda Expressions.iml" />
       <module fileurl="file://$PROJECT_DIR$/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/HelloWorld/HelloWorld.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Java-Programming.iml" filepath="$PROJECT_DIR$/.idea/Java-Programming.iml" />
       <module fileurl="file://$PROJECT_DIR$/OOP-Concepts-Java/OOP-Concepts-Java.iml" filepath="$PROJECT_DIR$/OOP-Concepts-Java/OOP-Concepts-Java.iml" />

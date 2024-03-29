@@ -1,3 +1,4 @@
+import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -39,7 +40,112 @@ public class Main {
             }
         }
 
+        // -------------------------------------------------------------------------------------------------------------
+
+        System.out.println("\nWorking with Threads from the Runnable Interface alongwith Threads from the Custom Thread and the Main Thread");
+
+        // Creating threads using the Runnable Interface
+        Runnable myRun = () -> {
+            for (int i = 0; i < 10; i++) {
+                System.out.println("Runnable Thread: " + 2);
+                try {
+                    TimeUnit.MILLISECONDS.sleep(250);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        // Accessing the Thread by creating an instance of the Thread class
+        Thread newRunnableThread = new Thread(myRun);
+
+        // Starting the Runnable Thread
+        newRunnableThread.start();
+
+        // Starting the Custom Thread
+        CustomThread newThread2 = new CustomThread();
+        newThread2.start();
+
+        // Starting the Main Thread
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Main Thread: " + 0);
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // -------------------------------------------------------------------------------------------------------------
+
+        /*
+        Working the Threads:
+
+        System.out.println("\nInteracting with Threads .... ");
+        Thread interThread = new Thread(() -> {
+            String tName = Thread.currentThread().getName();
+            System.out.println("Current Thread: " + tName + " should take 10 dots to complete");
+            for (int i = 0; i < 10; i++) {
+                System.out.print(". ");
+                try {
+                    TimeUnit.MILLISECONDS.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            System.out.println();
+            System.out.println("The Thread has completed Execution");
+        });
+
+        System.out.println("Starting working with the Interactive Thread: " + interThread.getName());
+        interThread.start();
+
+        System.out.println("The main thread is still being executed"); */
+
+        // -------------------------------------------------------------------------------------------------------------
+
+        /* Interrupting Threads: */
+        System.out.println("\nWorking on Interrupting Threads");
+
+        Thread thread = new Thread(() -> {
+
+            // Accessing the Name of the Current Thread
+            String threadName = Thread.currentThread().getName();
+            System.out.println("The Current Thread is: " + threadName);
+
+            // Printing the 10 dots of the Thread
+            for (int i = 0; i < 10; i++) {
+                System.out.print(". ");
+
+                try {
+                    // Sleeping the Thread after every execution for 500 millis
+                    TimeUnit.MILLISECONDS.sleep(500);
+                } catch (InterruptedException e) {
+
+                    System.out.println("\nThread: " + threadName + " was interrupted after the execution of the main thread");
+                    return;
+                }
+            }
+        });
+
+        System.out.println("Starting execution of Thread: " + thread.getName());
+        thread.start();
+
+        System.out.println("Returning Execution to the Main Thread: " + Thread.currentThread().getName());
+
+        // Interrupting Case for the Main Thread
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Interrupting the User Thread
+        thread.interrupt();
     }
+
+    // -------------------------------------------------------------------------------------------------------------
 
     // A Methods used to describe the different properties of the thread
     public static void getThreadProperties(Thread thread) {
