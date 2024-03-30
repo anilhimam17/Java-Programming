@@ -3,76 +3,43 @@ import java.util.concurrent.TimeUnit;
 public class ThreeSec {
     public static void main(String[] args) {
 
-        // Creating a New User Thread
-        Thread thread = new Thread(() -> {
-
-            String uThreadName = Thread.currentThread().getName();
-            System.out.println("\nUser Thread: " + uThreadName);
-
-            for (int i = 0; i < 10; i++) {
-                System.out.print(". ");
-
-                try {
-
-                    // Making the User Thread Sleep
-                    TimeUnit.MILLISECONDS.sleep(500);
-
-                    // Acquiring the state of the User thread after each sleep statement
-                    System.out.println("User Thread: " + Thread.currentThread().getState());
-
-                } catch (InterruptedException e) {
-                    System.out.println();
-                    System.out.println("The Thread was executed for more than 3 Seconds ....");
-                    System.out.println("The Thread was hence terminated.");
-                    System.out.println(Thread.currentThread().getState());
-                    return;
-                }
-            }
-
-            System.out.println("\nCompleted the Execution of the Thread");
+        // Creating a Thread using the Runnable Interface
+        Thread myThread = new Thread(() -> {
+           System.out.println("Executing the User Thread: " + Thread.currentThread().getName());
+           for (int i = 0; i < 10; i++) {
+               System.out.printf(String.format("%d . %n", i + 1));
+               try {
+                   Thread.sleep(500);
+               } catch (InterruptedException e) {
+                   System.out.println("The User Thread was terminated before completion of execution");
+                   return;
+               }
+           }
+           System.out.println("The User Thread has completed execution successfully");
         });
 
-        // Using the above thread
-        System.out.println("Starting the execution of the User Thread");
-        thread.start();
+        System.out.println("Starting execution of the User Thread");
+        myThread.start();
+        System.out.println("Access of execution is still with the Main Thread while the User Thread is being setup");
 
-        // Keeping track of the time being elapsed under the User Thread
-        long time = System.currentTimeMillis();
-        while (thread.isAlive()) {
-            System.out.println("\nThe User Thread is still being executed");
-
+        long timeStart = System.currentTimeMillis();
+        while (myThread.isAlive()) {
             try {
 
-                // Sleeping the Main Thread since the User Thread still has time to live
+                // Checking if the Burst Time allocated has elapsed
+                if (System.currentTimeMillis() - timeStart > 3000) {
+                    System.out.println("The User Thread is taking tooo long, terminating its execution");
+                    myThread.interrupt();
+                    break;
+                }
+
+                // If not elapsed continue execution of the User Thread and Pause the Main Thread
+                System.out.println("\nWaiting for Execution of the User Thread");
                 Thread.sleep(1000);
 
-                // Acquiring the state of the Main Thread after sleep
-                System.out.println("Main Thread: " + Thread.currentThread().getState());
-
-                // If thread elapsed time then returning control to the main thread
-                if (System.currentTimeMillis() - time > 2000) {
-                    thread.interrupt();
-                }
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("The Main thread was terminated before completion");
             }
         }
-
-        // Viewing the State of the User Thread once terminated
-        System.out.println("User: " + thread.getState());
-
-        /*
-        System.out.println("Returning Execution to the Main Thread");
-        // Thread.currentThread().interrupt();
-
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            System.out.println("The Main Thread was Interrupted");
-        }
-
-        // Interrupting the User Thread
-        thread.interrupt();
-        */
     }
 }
