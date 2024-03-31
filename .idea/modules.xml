@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/HelloWorld/HelloWorld.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Java-Programming.iml" filepath="$PROJECT_DIR$/.idea/Java-Programming.iml" />
       <module fileurl="file://$PROJECT_DIR$/OOP-Concepts-Java/OOP-Concepts-Java.iml" filepath="$PROJECT_DIR$/OOP-Concepts-Java/OOP-Concepts-Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Synchronisation and Locks/Synchronisation and Locks.iml" filepath="$PROJECT_DIR$/Synchronisation and Locks/Synchronisation and Locks.iml" />
       <module fileurl="file://$PROJECT_DIR$/Working with Threads/Working with Threads.iml" filepath="$PROJECT_DIR$/Working with Threads/Working with Threads.iml" />
     </modules>
   </component>
